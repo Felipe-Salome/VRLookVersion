@@ -1,5 +1,3 @@
-# VRLookVersion
-
 <h1 align="center">Exibir Versão das Libs de Arquivos .JAR via Menu de Contexto</h1>
 
 ---
