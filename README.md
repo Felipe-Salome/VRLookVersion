@@ -69,28 +69,6 @@ Confirme quando solicitado para adicionar a chave ao registro.
 
 ---
 
-# Exemplo do Script `exibir_versoes.ps1`
-
-```powershell
-param([string]$jarPath)
-
-Write-Host "Analisando bibliotecas do arquivo: $jarPath"
-
-$tempDir = "$env:TEMP\\jar_temp_$$"
-Expand-Archive -Path $jarPath -DestinationPath $tempDir -Force
-
-$libs = Get-ChildItem -Recurse -Path $tempDir -Include "pom.properties", "MANIFEST.MF"
-foreach ($lib in $libs) {
-    Write-Host "--- $($lib.FullName) ---"
-    Get-Content $lib.FullName | Select-String -Pattern "version|artifact|group"
-    Write-Host ""
-}
-
-Remove-Item -Recurse -Force $tempDir
-```
-
----
-
 # Considerações de Segurança
 
 * Altere o script `ps1` conforme o padrão de empacotamento das suas bibliotecas.
